@@ -52,7 +52,6 @@ function PokemonContainer() {
                     <Pokemon key={pokemon.name} pokemon={pokemon} />
                 </Link>
             </div>
-            
         )
     })
 

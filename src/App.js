@@ -1,7 +1,7 @@
 import './App.css'
 import React from 'react'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { HashRouter, BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 /** @jsx jsx */ /** @jsxRuntime classic */
 import { jsx, css } from '@emotion/react'
 
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ApolloProvider client={client}>
-      <Router>
+      <HashRouter>
             <div css={pokedexContainer}>
                 <Switch>
                     <Route path="/" exact component={PokemonContainer}/>
@@ -31,7 +31,7 @@ function App() {
                     <Route path="/pokemon-list/" component={MyPokemonContainer}/>
                 </Switch>
             </div>
-        </Router>
+        </HashRouter>
     </ApolloProvider>
   );
 }

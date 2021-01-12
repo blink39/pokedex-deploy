@@ -19,6 +19,12 @@ function App() {
   const pokedexContainer = css`
     width: 50%;
     margin-left: 25%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    @media (max-width: 800px) {
+      width: 100%;
+      margin-left: 0%;
+    }
   `
 
   return (

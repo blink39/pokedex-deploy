@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 import { jsx, css } from '@emotion/react'
 
 import Pokemon from '../components/Pokemon'
+import Button from '../components/Button'
 
 function PokemonContainer() {
 
@@ -14,13 +15,14 @@ function PokemonContainer() {
     `
 
     const buttonSize = css `
-        width: 100%;
+        text-align: center;
+        margin-bottom: 5px;
     `
     
     const eachPokemon = css`
-        width: 45%;
-        padding: 10px;
-        float: left;
+        width: 95%;
+        margin: 0 auto;
+        padding: 5px;
     `
 
     const[stateLimit] = useState(6)
@@ -73,13 +75,14 @@ function PokemonContainer() {
         <div css={pokemonList}>
             <div css={buttonSize}>
                 <Link to={`/pokemon-list`}>
-                    <button>My Pokemon</button>
+                    <Button name="My Pokemon" width="120" height="40"></Button>
                 </Link>
             </div>
             {pokemonsData}
             <div css={buttonSize}>
-                <button onClick={getPrevData}>Prev</button>
-                <button onClick={getNextData}>Next</button>
+                <Button name="<" width="120" height="40" handleChange={getPrevData}></Button>
+                &emsp;
+                <Button name=">" width="120" height="40" handleChange={getNextData}></Button>
             </div>
         </div>
     )

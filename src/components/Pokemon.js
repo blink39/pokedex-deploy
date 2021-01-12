@@ -1,6 +1,7 @@
 import React from 'react'
 /** @jsx jsx */ /** @jsxRuntime classic */
 import { jsx, css } from '@emotion/react'
+import styled from '@emotion/styled'
 
 function Pokemon(props) {
     
@@ -19,7 +20,6 @@ function Pokemon(props) {
 
     const styleText = css`
         font-family:'Roboto', sans-serif;
-        text-align: center;
         background-color: grey;
         border-radius: 15px;
         padding: 3px;
@@ -27,18 +27,26 @@ function Pokemon(props) {
         font-size: 20px;
         text-decoration: none;
     `
+    const styleImage = css`
+        height: 100%;
+    `
+
+    const Separator = styled('div')`
+        width: ${props => props.left ? `40%` : `60%`};
+        text-align: ${props => props.left ? `center` : ``};
+        display: inline-block;
+        vertical-align: top;
+    `
 
     return (
         <div css={styleText}>
-            <div>
+            <Separator left>
+                <img css={styleImage} src={props.pokemon.image} alt={props.pokemon.name} />
+            </Separator>
+            <Separator right>
                 <p>{capitalizeFLetter}</p>
-            </div>
-            <div className="pokemon_image">
-                <img src={props.pokemon.image} alt={props.pokemon.name} />
-            </div>
-            <div className="pokemon_owned">
                 <p>Owned : {localPokemonCounter}</p>
-            </div>
+            </Separator>
         </div>
     )
 }

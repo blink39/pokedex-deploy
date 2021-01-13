@@ -77,7 +77,7 @@ function MyPokemonContainer({match}) {
                 </Link>
             </div>
             <div css={containerPokemonList}>
-                {pokemonList}
+                {pokemonList.length > 0 ? pokemonList : 'Please Catch Pokemon First!'}
             </div>
             {/* <table>
                 <thead>

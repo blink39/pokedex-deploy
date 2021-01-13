@@ -19,11 +19,10 @@ function Pokemon(props) {
     const capitalizeFLetter = props.pokemon.name.charAt(0).toUpperCase() + props.pokemon.name.slice(1)
 
     const styleText = css`
-        font-family:'Roboto', sans-serif;
-        background-color: grey;
+        background-color: #e6e6e6;
         border-radius: 15px;
         padding: 3px;
-        color: white;
+        color: black;
         font-size: 20px;
         text-decoration: none;
     `

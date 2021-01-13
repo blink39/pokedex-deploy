@@ -35,7 +35,8 @@ export const GET_POKEMON_DETAIL = gql`
                 }
             }
             sprites {
-                front_default
+                front_default,
+                back_default
             }
             message
             status

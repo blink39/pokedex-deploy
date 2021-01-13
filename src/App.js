@@ -17,6 +17,7 @@ function App() {
   })
 
   const pokedexContainer = css`
+    font-family:'Roboto', sans-serif;
     width: 50%;
     margin-left: 25%;
     padding-top: 10px;

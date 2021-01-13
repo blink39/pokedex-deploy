@@ -13,7 +13,7 @@ function Button(props) {
     `
 
     return (
-        <Button onClick={() => props.handleChange()}>{props.name}</Button>
+        <Button onClick={() => props.handleChange? props.handleChange() : void 0}>{props.name}</Button>
     )
 }
 

@@ -1,8 +1,36 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
+/** @jsx jsx */ /** @jsxRuntime classic */
+import { jsx, css } from '@emotion/react'
+import styled from '@emotion/styled'
+
+import PokemonList from '../components/PokemonList'
+import Button from '../components/Button'
 
 function MyPokemonContainer({match}) {
     
+    const buttonSize = css `
+        text-align: center;
+        margin-bottom: 15px;
+    `
+
+    const container = css`
+        width: 95%;
+        margin: 0 auto;
+        padding: 5px;
+    `
+
+    const containerPokemonList = css`
+        text-align: center;
+    `
+
+    const PokemonTotal = styled('div')`
+        text-align: center;
+        width: 50%;
+        border-radius: 15px;
+        border: 1px solid black;
+    `
+
     let localPokemon = JSON.parse(localStorage.getItem("myPokemon"))
     let currState = []
 
@@ -11,7 +39,6 @@ function MyPokemonContainer({match}) {
     }
 
     const [state, setState] = useState(currState)
-
 
     function deletePokemon(pokemon, nickname) {
         let indexDeleted = -1
@@ -35,13 +62,24 @@ function MyPokemonContainer({match}) {
             </tr>
         )
     })
+    
+    const pokemonList = state.map(data => {
+        return (
+            <PokemonList name={data[0]} nickname={data[1]} handleChange={() => deletePokemon(data[0], data[1])}></PokemonList>
+        )
+    })
 
     return (
-        <div className="pokemons">
-            <Link to={`/`}>
-                <button>Home</button>
-            </Link>
-            <table>
+        <div css={container}>
+            <div css={buttonSize}>
+                <Link to={`/`}>
+                    <Button name="Home" width="120" height="40"></Button>
+                </Link>
+            </div>
+            <div css={containerPokemonList}>
+                {pokemonList}
+            </div>
+            {/* <table>
                 <thead>
                     <tr>
                         <td>Number</td>
@@ -52,7 +90,7 @@ function MyPokemonContainer({match}) {
                 <tbody>
                     {listTable}
                 </tbody>
-            </table>
+            </table> */}
         </div>
     )
 }
